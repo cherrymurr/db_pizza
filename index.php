@@ -2,6 +2,7 @@
 
 include('db_fns.php'); //подключение всех функций
 include('cart_fns.php');
+include('recipe_fns.php');
 
 session_start(); //для добавления товаров в корзину
 
@@ -41,6 +42,11 @@ switch($view)
 	case('type'):
 		$type = $_GET['type'];
 		$products = get_type_products($type);
+	break;
+	case ('recipe'):
+		$id=$_GET['id'];
+		$product=get_product($id);
+		$recipe=get_recipe($id);
 	break;
 	default:
 	header('Location:index.php?');
