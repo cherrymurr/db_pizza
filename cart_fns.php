@@ -22,6 +22,7 @@
 		{
 			unset($_SESSION['cart'][$id]);
 		}
+		else if (($_POST[$id]<0)||!is_numeric($_POST[$id])) {}
 		else
 		{
 			$_SESSION['cart'][$id]=$_POST[$id];

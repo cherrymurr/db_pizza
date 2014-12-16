@@ -81,7 +81,6 @@ div{
 
 .box{
 	width:250;
-	height:380;
 	float:left;
 	margin:20;
 	background: #DAA520;
@@ -115,6 +114,12 @@ div{
 			color: #000000;
 			font-family: 'Comic Sans MS', cursive;
 		
+}
+
+.error{
+	text-align:center;
+	color:8B0000;
+	font-size:15;
 }
 
 #mycart{
