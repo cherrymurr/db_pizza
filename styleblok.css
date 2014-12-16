@@ -1,0 +1,234 @@
+body{ 													/* Для блочной верстки*/
+	background-image:url("images/fone.jpg");
+	background-attachment: fixed;
+	background-repeat: repeat;}
+div{
+	border-width:1; 
+	border-style: solid;
+	}
+#tabl { 
+	margin: auto; 
+	width:1190px;
+	background: #FFFFE0;
+	border-width:2; 
+	border-style: solid; 
+}
+#shapka {
+	background-image: url("images/shap.jpg");  /* Оформление +меню*/
+	background-position: center;
+	height:210px;
+	width: 1183px;
+	position: static;
+	margin:0.6mm;
+	margin-bottom:0.4mm;
+	
+}
+
+#menu{
+	background-image: url("images/menu.jpg");  /* Оформление +меню*/
+	background-position: center;
+	height:824px;
+	width: 293px;
+	position: relative;
+	float: left;
+	margin:0.6mm;
+	margin-bottom:0.4mm;
+}
+
+.punkt_menu{
+			margin:5px 10px; 
+			padding:6px 5px 6px 6px; 
+			border:3px solid #000000; 
+			background: #FFFFFF; 
+			border-radius:8px; 
+			min-height:30px; 
+			font-size:35px;
+			text-align:center;
+			
+}
+
+#osnova{
+	position:relative;
+	float:left;
+	margin:0.6mm;
+	margin-bottom:0.4mm;
+	margin-right:0.6mm;
+	width: 882;
+	border-style:none;
+	background: #FFFFE0;
+}
+
+
+
+#podv{
+	background-image: url("images/podv.jpg");  /* Оформление +меню*/
+	background-position: center;
+	width:1183;
+	height:47;
+	margin:0.2mm; 
+	margin-left:0.6mm;
+	margin-bottom:0.3mm;
+	clear:right;
+	float:left;
+}
+
+
+#obtek{                                 /* Отдельные элементы*/
+	width:100%; 
+	height:0px; 
+	clear:both;
+}
+
+.box{
+	width:250;
+	height:380;
+	float:left;
+	margin:20;
+	background: #DAA520;
+}
+
+.kartinka{
+	width:240;
+	height:240;
+	margin:4;
+	background: #FFFFFF;
+}
+
+.cena{
+	width:240;
+	text-align:center;
+	margin:4;
+}
+
+.desc{
+			
+			margin:20px 10px; 
+			padding:6px 5px 6px 6px; 
+			border:3px solid #000000; 
+			background: #FFFFFF;
+			border-radius:8px; 
+			min-height:25px; 
+			width: 500px;
+			font-size:20px;
+			text-align:center;
+			float:left;
+			color: #000000;
+			font-family: 'Comic Sans MS', cursive;
+		
+}
+
+#mycart{
+	width:650;
+	border:1px solid #000000; 
+	background-image: url("images/fone_cart.jpg");  /* Оформление +меню*/
+	background-position: center;
+}
+
+#dobav_nadp,#dobav_nadp1{
+			margin:20px 10px; 
+			padding:6px 5px 6px 6px; 
+			border:1px solid #000000; 
+			background-image: url("images/fone_knop.jpg");  /* Оформление +меню*/
+			background-position: center;
+			border-radius:8px; 
+			min-height:25px; 
+			width: 500px;
+			font-size:20px;
+			text-align:center;
+			color: #000000;
+			font-family: 'Comic Sans MS', cursive;
+}
+#dobav_nadp{
+	float:left;
+}
+
+
+a{color:black; text-decoration:none;}
+
+a:link:hover:{
+	color:#000000;
+}
+
+a:active{
+	color: blue;
+}
+
+h1,h2{
+	color:8B0000;
+}
+
+h1{
+	text-align:center;
+	text-decoration: underline;
+}
+
+h2{
+	text-align:center;
+	color:000000;
+	font-family: 'Comic Sans MS', cursive;
+	
+}
+
+h3{
+	text-align:center;
+	color:000000;
+}
+
+.zhir{
+	font-weight: bold;
+}
+
+
+#ciferblat{
+	position: absolute;
+	right:0;
+	top:0;
+	width:150;
+	height:150;
+}
+
+
+#hour {
+	
+	z-index: 2;
+	position: absolute;
+	right:0;
+	top:0;
+	width:150;
+	height:150;
+
+}
+#sekond {
+	
+	z-index: 3;
+	position: absolute;
+	right:0;
+	top:0;
+	width:150;
+	height:150;
+	
+}
+#minute {
+	
+	z-index: 1;
+	position: absolute;
+	right:0;
+	top:0;
+	width:150;
+	height:150;
+}
+
+#cat {
+			background: #FFFFE0;
+			margin:20px 20px; 
+			padding:6px 5px 6px 6px; 
+			border:1px solid #000000; 
+			border-radius:8px; 
+			min-height:25px; 
+			width: 200px;
+			font-size:20px;
+			text-align:center;
+			color: #000000;
+			font-family: 'Comic Sans MS', cursive;
+			float: left;
+}

@@ -1,6 +1,6 @@
 <?php
 
-include('db_fns.php');
+include('db_fns.php'); //подключение всех функций
 include('cart_fns.php');
 
 session_start(); //для добавления товаров в корзину
@@ -12,16 +12,16 @@ if(!isset($_SESSION['cart']))
 	$_SESSION['total_price'] = 0;
 }
 
-$view=empty($_GET['view']) ? 'index' : $_GET['view'];
+$view=empty($_GET['view']) ? 'index' : $_GET['view']; //автоматически index, если что то введено, то считываем из брауз строки
 
 switch($view)
 {
 	case('index') :
-		$products=get_products();
+		$products=get_products(); // получаем массив всех пицц
 	break;
 	case('product'):
 		$id=$_GET['id'];
-		$product=get_product($id);
+		$product=get_product($id); //отдельный продукт, получаем по id из GET
 	break;
 	case('cart'):
 	break;
@@ -38,6 +38,10 @@ switch($view)
 		$_SESSION['total_price']=total_price($_SESSION['cart']);
 		header('Location:index.php?view=cart');
 	break;
+	case('type'):
+		$type = $_GET['type'];
+		$products = get_type_products($type);
+	break;
 	default:
 	header('Location:index.php?');
 	case('order'):
@@ -47,6 +51,6 @@ switch($view)
 //if(!in_array($view,$arr)) die("ERROR 404");
 
 
-include ($_SERVER[DOCUMENT_ROOT].'/views/layouts/shop.php' );
+include ($_SERVER[DOCUMENT_ROOT].'/views/layouts/shop.php' ); //шаблон сайта
 
 ?>
