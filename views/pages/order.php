@@ -66,10 +66,12 @@
 		$all_price=$_SESSION['total_price'];
 		$pizza_id=$product['pizza_id'];
 		$date_order=date('Y-m-d H:i:s');
+		$manag=mysql_query("SELECT manager.manager_id FROM manager WHERE manager.active=1 ORDER BY RAND() LIMIT 1");
+		$res_manag=mysql_result ($manag, 0);
 		$query = mysql_query("INSERT INTO orders(first_name,last_name,
 			patronymic,phone,address,type_pay, date_order, 
 			all_price, complited, manager_id) VALUES ('$first_name','$last_name','$patronymic',
-			'$phone','$address','$type_pay','$date_order', '$all_price',0,1)");
+			'$phone','$address','$type_pay','$date_order', '$all_price',0,'$res_manag')");
 		$id1 = mysql_insert_id();
 		foreach($_SESSION['cart'] as $id => $quantity):
 			$product=get_product($id);
@@ -77,6 +79,14 @@
 			$query2=mysql_query("INSERT INTO orders_has_pizza(orders_id,pizza_id,amount_pizz)
 			VALUES('$id1','$pizza_id','$quantity')");
 		endforeach;
-		
-	}
-?>
+		echo "Ваш заказ успешно принят!<br>Ваш менеджер:<br>";
+		$man= ("SELECT * FROM manager WHERE manager_id='$res_manag'");
+		$res_man= mysql_query($man);
+		$res_man=db_result_to_array($res_man);
+		foreach($res_man as $item):?>		
+			<b>Имя:</b> <?php echo $item['first_name'].' '.$item['patronymic']?><br>
+			<b>Фамилия: </b><?php echo $item['last_name']?><br>
+			<b>Телефон: </b><?php echo $item['phone']?><br>
+		<? endforeach;
+		echo "В ближайшее время с Вами свяжутся по телефону! Спасибо за заказ!";
+		}?>
