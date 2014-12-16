@@ -53,19 +53,29 @@
 <!--<center><p  id="dobav_nadp1" class="zhir"><a href="index.php?view=order">Оформить заказ</a></p></center><br>-->
 <center><img src='images/kart_in_order1.png' height="400"></center>
 
-<?
+<?php
 }
 	if($_SESSION['cart'] && (isset($_POST['order'])))
 	{
+		$first_name=$_POST['first_name'];
+		$last_name=$_POST['last_name'];
+		$patronymic=$_POST['patronymic'];
+		$phone=$_POST['phone'];
 		$address=$_POST['address'];
-		
-		$date=date('Y-m-d');
-		$time=date('H:i:s');
-		
+		$type_pay=$_POST['type_pay'];
+		$all_price=$_SESSION['total_price'];
+		$pizza_id=$product['pizza_id'];
+		$date_order=date('Y-m-d H:i:s');
+		$query = mysql_query("INSERT INTO orders(first_name,last_name,
+			patronymic,phone,address,type_pay, date_order, 
+			all_price, complited, manager_id) VALUES ('$first_name','$last_name','$patronymic',
+			'$phone','$address','$type_pay','$date_order', '$all_price',0,1)");
+		$id1 = mysql_insert_id();
 		foreach($_SESSION['cart'] as $id => $quantity):
-		$product=get_product($id);
-			//$query=mysql_query("INSERT INTO order(type_pay,address) VALUES ('$type_pay','$address')");
-			$query=mysql_query("INSERT INTO address(city) VALUES ('$address')");
+			$product=get_product($id);
+			$pizza_id=$product['pizza_id'];
+			$query2=mysql_query("INSERT INTO orders_has_pizza(orders_id,pizza_id,amount_pizz)
+			VALUES('$id1','$pizza_id','$quantity')");
 		endforeach;
 		
 	}
