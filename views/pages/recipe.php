@@ -21,6 +21,6 @@
 			}
 		?>
 	</div>
-	<div class="desc zhir"><?php echo $recipe['recipe']?></div>
+	<div class="desc1 zhir"><?php echo $recipe['recipe']?></div>
 
 	

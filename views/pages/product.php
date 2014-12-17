@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div class="desc zhir"><?php echo $product['description']?></div>
-	<div class="desc zhir" >Состав:<br>
+	<div class="desc zhir">Состав:<br>
 		<?php
 			$ide=$product['pizza_id'];
 			$query= ("SELECT product, structure.weight FROM food,structure,pizza WHERE pizza.pizza_id='$ide' AND pizza.pizza_id=structure.pizza_id AND structure.food_id=food.food_id");
@@ -26,7 +26,7 @@
 			}
 		?>
 	</div>
-	<div class="desc zhir" style="background:#FF69B4;"><a href = "index.php?view=recipe&id=<?php echo $product['pizza_id']?>"> Хотите приготовить сами? Нажмите, чтобы посмотреть рецепт!</a></div>
-	<center><div id="dobav_nadp" class="zhir"><a href = "index.php?view=add_to_cart&id=<?php echo $product['pizza_id']?>"> Добавить в заказ</a></div></center>
+	<div class="desc1 zhir"><a href = "index.php?view=recipe&id=<?php echo $product['pizza_id']?>"> Хотите приготовить сами? Нажмите, чтобы посмотреть рецепт!</a></div>
+	<div id="dobav_nadp" class="zhir"><a href = "index.php?view=add_to_cart&id=<?php echo $product['pizza_id']?>"> Добавить в заказ</a></div>
 	
 	

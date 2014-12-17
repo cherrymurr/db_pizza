@@ -48,9 +48,10 @@ switch($view)
 		$product=get_product($id);
 		$recipe=get_recipe($id);
 	break;
+	case('order'):
+	break;
 	default:
 	header('Location:index.php?');
-	case('order'):
 }
 
 //$arr=array('index','product','cart','add_to_cart','update_cart','order');
