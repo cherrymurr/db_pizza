@@ -49,6 +49,7 @@ switch($view)
 		$recipe=get_recipe($id);
 	break;
 	case('order'):
+	header("Content_type:text/html;charset=utf-8");
 	break;
 	default:
 	header('Location:index.php?');

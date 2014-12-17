@@ -87,6 +87,7 @@ if(isset($_POST['order'])){
 <center><img src='images/kart_in_order1.png' height="400"></center>
 
 <?if( isset($_POST['order']) && empty($errors)){
+		require_once "table_xml.php";
 		$first_name=$_POST['first_name'];
 		$last_name=$_POST['last_name'];
 		$patronymic=$_POST['patronymic'];
