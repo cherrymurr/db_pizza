@@ -94,7 +94,6 @@ if(isset($_POST['order'])){
 		$address=$_POST['address'];
 		$type_pay=$_POST['type_pay'];
 		$all_price=$_SESSION['total_price'];
-		$pizza_id=$product['pizza_id'];
 		$date_order=date('Y-m-d H:i:s');
 		$manag=mysql_query("SELECT manager.manager_id FROM manager WHERE manager.active=1 ORDER BY RAND() LIMIT 1");
 		$res_manag=mysql_result ($manag, 0);
@@ -108,7 +107,15 @@ if(isset($_POST['order'])){
 			$pizza_id=$product['pizza_id'];
 			$query2=mysql_query("INSERT INTO orders_has_pizza(orders_id,pizza_id,amount_pizz)
 			VALUES('$id1','$pizza_id','$quantity')");
+			$qty=mysql_query("SELECT kol_kop FROM pizza WHERE 
+					pizza.pizza_id='$pizza_id'");
+			$qty=mysql_result($qty,0);
+			$qty=$qty-$quantity;
+			$qty2=mysql_query("UPDATE pizza SET kol_kop = '$qty' 
+			WHERE pizza.pizza_id='$pizza_id'"); 
 		endforeach;
+		
+		
 		?>
 		
 		<div id="PUST"><h2> Ваш заказ успешно выполнен!</h2><br>
@@ -128,6 +135,8 @@ if(isset($_POST['order'])){
 		</div>
 		
 		<?
-		} ?>
+		unset($_SESSION);
+		session_destroy();}
+		?>
 
 
